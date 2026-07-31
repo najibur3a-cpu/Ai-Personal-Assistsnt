@@ -1,0 +1,314 @@
+/* style.css - Clean AI Assistant Theme */
+
+/* ========================================
+   1. FONTS & RESET
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   2. VARIABLES
+   ======================================== */
+:root {
+    --primary: #6C63FF;
+    --primary-dark: #5A52D5;
+    --bg: #0A0A1A;
+    --card-bg: #14142D;
+    --text: #FFFFFF;
+    --text-muted: #A0A0C0;
+    --border: #2A2A4A;
+    --radius: 12px;
+    --shadow: 0 8px 32px rgba(108, 99, 255, 0.1);
+}
+
+/* ========================================
+   3. BODY
+   ======================================== */
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 50px 20px;
+}
+
+/* ========================================
+   4. MAIN HEADING
+   ======================================== */
+.main-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 35px;
+    letter-spacing: -0.5px;
+}
+
+/* ========================================
+   5. CONTAINER
+   ======================================== */
+.container {
+    width: 100%;
+    max-width: 560px;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 30px 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+/* ========================================
+   6. SECTION HEADINGS
+   ======================================== */
+.container h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 10px 0;
+}
+
+.container h2:first-of-type {
+    margin-top: 0;
+}
+
+.container h2:not(:first-of-type) {
+    margin-top: 28px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+}
+
+/* ========================================
+   7. FORMS
+   ======================================== */
+form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* ========================================
+   8. INPUTS
+   ======================================== */
+input[type="text"] {
+    flex: 1;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: 0.2s;
+    height: 42px;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary);
+    background: rgba(108, 99, 255, 0.05);
+}
+
+input[type="text"]::placeholder {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+textarea {
+    flex: 1;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: 0.2s;
+    min-height: 80px;
+    resize: vertical;
+}
+
+textarea:focus {
+    border-color: var(--primary);
+    background: rgba(108, 99, 255, 0.05);
+}
+
+textarea::placeholder {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   9. BUTTONS
+   ======================================== */
+button[type="submit"] {
+    padding: 10px 24px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button[type="submit"]:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(108, 99, 255, 0.3);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   10. LOADING
+   ======================================== */
+#ask-loading,
+#summary-loading {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 10px 0 2px 0;
+    display: none;
+}
+
+/* ========================================
+   11. ANSWER & SUMMARY - ALWAYS VISIBLE BOXES
+   ======================================== */
+#answer,
+#summary {
+    margin-top: 12px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    min-height: 45px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Style when they have content */
+#answer:not(:empty) {
+    color: var(--text);
+    background: rgba(108, 99, 255, 0.06);
+    border-color: rgba(108, 99, 255, 0.25);
+}
+
+#summary:not(:empty) {
+    color: var(--text);
+    background: rgba(108, 99, 255, 0.06);
+    border-color: rgba(108, 99, 255, 0.25);
+}
+
+/* ========================================
+   12. RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 30px 16px;
+    }
+
+    .main-heading {
+        font-size: 2rem;
+        margin-bottom: 28px;
+    }
+
+    .container {
+        padding: 22px 18px;
+    }
+
+    form {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    textarea {
+        min-height: 70px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        height: 44px;
+        padding: 12px;
+    }
+
+    .container h2:not(:first-of-type) {
+        margin-top: 24px;
+        padding-top: 24px;
+    }
+
+    #answer,
+    #summary {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        min-height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-heading {
+        font-size: 1.6rem;
+        margin-bottom: 22px;
+    }
+
+    .container {
+        padding: 18px 14px;
+    }
+
+    .container h2 {
+        font-size: 1rem;
+    }
+
+    #answer,
+    #summary {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+        min-height: 35px;
+    }
+}
+
+/* ========================================
+   13. SCROLLBAR
+   ======================================== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
