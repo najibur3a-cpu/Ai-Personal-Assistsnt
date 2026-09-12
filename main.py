@@ -27,7 +27,7 @@ def ask():
             temperature = 0.7,
             max_completion_tokens = 512,
     
-            model="llama-3.3-70b-versatile",
+            model="qwen/qwen3.6-27b",
             )
     answer = response.choices[0].message.content.strip()
     return jsonify({"response":answer}),200
@@ -44,7 +44,7 @@ def summarize():
             temperature = 0.3,
             max_completion_tokens = 512,
     
-            model="llama-3.3-70b-versatile",
+            model="qwen/qwen3.6-27b",
             )
     summary = response.choices[0].message.content.strip()
     return jsonify({"response":summary}),200
